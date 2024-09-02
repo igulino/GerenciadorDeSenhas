@@ -63,7 +63,6 @@ C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\weba
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\WebApplication1.RazorAssemblyInfo.cache
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\WebApplication1.RazorAssemblyInfo.cs
-C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\WebApplication1.sourcelink.json
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\staticwebassets\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props

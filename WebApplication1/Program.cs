@@ -30,9 +30,7 @@ app.MapPost("/A1", async (HttpContext context) => {
     var result = await Desserilize.A2(context);
     if (result != null && result.Any())
     {
-        System.Console.WriteLine(string.Join(", ", result));
-
-        Randominator.randomize(string.Join(", ", result));
+        Randominator.randomize(result);
     }
     return Results.Ok(result);
 });
