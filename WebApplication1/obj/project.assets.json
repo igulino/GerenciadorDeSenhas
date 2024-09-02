@@ -396,11 +396,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\webapplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\testes\\webapplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\webapplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\testes\\webapplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\ligor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\webapplication1\\obj\\",
+      "outputPath": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\testes\\webapplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ligor\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,5 +1,7 @@
-using FirebaseMedium;
+using RandomPos;
+using Microsoft.AspNetCore.Mvc;
 
+[assembly: ApiController]
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,5 +26,15 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapPost("/A1", async (HttpContext context) => {  
+    var result = await Desserilize.A2(context);
+    if (result != null && result.Any())
+    {
+        System.Console.WriteLine(string.Join(", ", result));
+
+        Randominator.randomize(string.Join(", ", result));
+    }
+    return Results.Ok(result);
+});
 
 app.Run();

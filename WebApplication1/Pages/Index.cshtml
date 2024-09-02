@@ -7,4 +7,56 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <button>aaaaaaa</button>
+     @section Scripts {    
+    <script>
+       const B1 = document.getElementById("Body1");
+       
+        var InfoSausage = [];
+        setInterval(AjaxCallBack, 5000);
+        B1.onmousemove(bt1);
+        function bt1(event){
+            if(InfoSausage.length > 8){
+                InfoSausage.splice(0, 3);
+            }
+            InfoSausage.push(event.clientY, event.clientX, event.screenX);
+        
+            console.log(InfoSausage);
+        }
+
+        
+
+        async function AjaxCallBack(){
+           const requestXhttp = new XMLHttpRequest();
+
+            requestXhttp.onload = ()=>{
+                  if (requestXhttp.status === 200) {
+                    // Sucesso: tratar a resposta aqui
+                    console.log(requestXhttp.responseText);
+                } else {
+                    // Tratar erros, se necessário
+                    console.error("Erro na requisição:", requestXhttp.statusText, requestXhttp.status);
+                }
+            }
+            requestXhttp.open("POST", "http://localhost:5118/A1", true);
+              requestXhttp.setRequestHeader("Content-Type", "application/json");
+
+            await requestXhttp.send(JSON.stringify(InfoSausage))
+
+            /* $.ajax({
+                        method: "POST",
+                        url: vUrl,
+                        data: vData
+                    })
+                    .done(function(msg) {
+                        $("#resultado").html(msg);
+                    })
+                    .fail(function(jqXHR, textStatus, msg) {
+                        alert(jqXHR);
+                    });
+            });
+    */
+        }
+    </script>}
+
 </div>

@@ -491,11 +491,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\testes\\ConsoleApp1\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectPath": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\testes\\ConsoleApp1\\ConsoleApp1.csproj",
       "packagesPath": "C:\\Users\\ligor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\ConsoleApp1\\obj\\",
+      "outputPath": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\testes\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ligor\\AppData\\Roaming\\NuGet\\NuGet.Config",
