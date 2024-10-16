@@ -1,45 +1,44 @@
-﻿using FireSharp;
-using RandomPos;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FireSharp;
+﻿
 using FireSharp.Config;
 using FireSharp.Interfaces;
-using FireSharp.Response;
-using Newtonsoft.Json;
 namespace FirebaseMedium
 {
     
-    static class Program {
-        static async Task Main(){
+    /*public static class Program {
+        public static async Task Main(){
             
             Crud ins = new Crud();
             await ins.Insert("Netflix", "Ks@e39Lk2f@a01");
         }
-    }
+    }*/
     public class Connection{
         //firebase connection Settings
-        public IFirebaseConfig FbConfig = new FirebaseConfig()
+        public static IFirebaseConfig FbConfig = new FirebaseConfig()
         {
-            AuthSecret = "WTv8rerSHJvJ4J4tbGlNxziWAklYN24J3x9Q60Pa",
+            AuthSecret = "8X8AVZ0tTbKcIZJJPtbHnXoitTdstbDoUm4ub3Lh",
             BasePath = "https://gerenciadordesenhapapito-default-rtdb.firebaseio.com/"
         };
 
-        public IFirebaseClient client;
+        public IFirebaseClient client {get; set;}
         //Code to warn console if class cannot connect when called.
         public Connection()
         {
             try
             {
+
                 client = new FireSharp.FirebaseClient(FbConfig);
+                if (client != null)
+                {
+                    System.Console.WriteLine("conexão bem sucedida!");
+                }
+               
             }
             catch (Exception)
             {
-                Console.WriteLine("error");
+                Console.WriteLine("erro tal");
             }
         }
+       
     }
 
     public class Data{
@@ -48,14 +47,21 @@ namespace FirebaseMedium
     }
     
     public partial class Crud{
-        public Connection BD = new Connection();
         public async Task Insert(string PasswordName, string CaracsGenerateds){
+            System.Console.WriteLine(PasswordName +" "+ CaracsGenerateds);
             Data Dt = new Data(){
                 PasswordName = PasswordName,
                 CaracsGenerateds = CaracsGenerateds
             };
+            try {
+                
+               Connection a = new Connection();
+               a.client.Set("/Registrar", Dt);
+        
+            } catch (Exception ex) {
+                Console.WriteLine($"Error: {ex.Message} stacktrace: {ex.Data}");
 
-            BD.client.Push("/Registrar", Dt);
+            }
         }
 
     }

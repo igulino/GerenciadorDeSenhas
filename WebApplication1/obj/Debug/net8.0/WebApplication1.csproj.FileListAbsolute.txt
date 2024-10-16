@@ -76,3 +76,5 @@ C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\weba
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\WebAppli.7D14BD69.Up2Date
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\WebApplication1.genruntimeconfig.cache
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\ref\WebApplication1.dll
+C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\bin\Debug\net8.0\DotNetEnv.dll
+C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\bin\Debug\net8.0\Sprache.dll

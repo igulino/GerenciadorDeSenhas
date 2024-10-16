@@ -49,6 +49,10 @@
             "FireSharp": {
               "target": "Package",
               "version": "[2.0.4, )"
+            },
+            "dotnetenv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
             }
           },
           "imports": [

@@ -1,5 +1,6 @@
 using RandomPos;
 using Microsoft.AspNetCore.Mvc;
+using Sprache;
 
 [assembly: ApiController]
 
@@ -30,9 +31,15 @@ app.MapPost("/A1", async (HttpContext context) => {
     var result = await Desserilize.A2(context);
     if (result != null && result.Any())
     {
-        Randominator.randomize(result);
+       Randominator.randomize(result);
     }
     return Results.Ok(result);
+});
+
+app.MapGet("/A2", async () => { 
+    //await FirebaseMedium.Program.Main();
+    Randominator.Click();
+    return Results.Ok();
 });
 
 app.Run();
