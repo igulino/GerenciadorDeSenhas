@@ -1,6 +1,7 @@
-﻿
+﻿using Newtonsoft.Json;
 using FireSharp.Config;
 using FireSharp.Interfaces;
+using FireSharp.Response;
 namespace FirebaseMedium
 {
     
@@ -15,8 +16,10 @@ namespace FirebaseMedium
         //firebase connection Settings
         public static IFirebaseConfig FbConfig = new FirebaseConfig()
         {
-            AuthSecret = "8X8AVZ0tTbKcIZJJPtbHnXoitTdstbDoUm4ub3Lh",
-            BasePath = "https://gerenciadordesenhapapito-default-rtdb.firebaseio.com/"
+           
+            BasePath = "https://sexo-9b749-default-rtdb.firebaseio.com/",
+            AuthSecret = "f0E2IF0eATEuF8HJLOUv8LMqvHeqsHV48lEyHlsS",
+
         };
 
         public IFirebaseClient client {get; set;}
@@ -48,18 +51,15 @@ namespace FirebaseMedium
     
     public partial class Crud{
         public async Task Insert(string PasswordName, string CaracsGenerateds){
-            System.Console.WriteLine(PasswordName +" "+ CaracsGenerateds);
             Data Dt = new Data(){
                 PasswordName = PasswordName,
                 CaracsGenerateds = CaracsGenerateds
             };
             try {
-                
-               Connection a = new Connection();
-               a.client.Set("/Registrar", Dt);
-        
+                string json = JsonConvert.SerializeObject(Dt);
+                PushResponse response = await new Connection().client.PushAsync("v1/", Dt);
             } catch (Exception ex) {
-                Console.WriteLine($"Error: {ex.Message} stacktrace: {ex.Data}");
+                Console.WriteLine($"Error: {ex.Message} stacktrace: {ex.StackTrace}");
 
             }
         }

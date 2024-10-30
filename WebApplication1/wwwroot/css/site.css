@@ -9,7 +9,7 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem rgb(231, 8, 8), 0 0 0 0.25rem #feffff;
 }
 
 html {
@@ -18,7 +18,71 @@ html {
 }
 
 body {
-  color: black;
+  color: rgb(230, 229, 229);
   margin-bottom: 60px;
-  background-color: black;
+  background-color: rgb(36, 36, 36);
+}
+
+
+
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a {
+  color: #0077cc;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #cccfd3;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #9c7e7e17;
+  background-color: #151f29;
+  border-color: #1861ac;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+#passName{
+  background-color: rgb(76, 80, 78);
+  width: 22%;
+  border-radius: 3%;
+  height: 40vh;
+}
+#passList{
+  margin-left: 32vw;
+}
+th, td {
+  border: 1px solid #2bce38;
+  padding-inline: 4vw;
+  text-align: left;
 }

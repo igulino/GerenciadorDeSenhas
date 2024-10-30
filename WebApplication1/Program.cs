@@ -36,9 +36,16 @@ app.MapPost("/A1", async (HttpContext context) => {
     return Results.Ok(result);
 });
 
-app.MapGet("/A2", async () => { 
+app.MapPost("/A2", async (HttpContext context) => { 
     //await FirebaseMedium.Program.Main();
-    Randominator.Click();
+    
+    string res = await Desserilize.A3(context);
+    
+     if (res != null && res.Any())
+    {
+       await Randominator.Click(res);
+    }
+    
     return Results.Ok();
 });
 

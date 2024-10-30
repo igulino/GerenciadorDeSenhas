@@ -74,11 +74,12 @@ public class Randominator
 
     }
 
-    public static async Task Click(){
+    public static async Task Click(string res){
 
-       
+        
         string resultado = string.Join("", FinalForm);
-        await connection.Insert("dsdsd", resultado);
+        System.Console.WriteLine("this is res: "+res);
+        await connection.Insert(res, resultado);
     }
 }
 
@@ -91,6 +92,16 @@ public class Desserilize {
             var coordinates = JsonSerializer.Deserialize<List<int>>(body);
             
             return coordinates ?? new List<int>();
+        }
+        public static async Task<string> A3(HttpContext context)
+        {
+            
+            using var reader = new StreamReader(context.Request.Body);
+            var body = await reader.ReadToEndAsync();
+            
+            System.Console.WriteLine("aaaaaaaa "+ body);
+
+            return body ?? "";
         }
 }
 

@@ -3,16 +3,77 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<body id="Body1">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container" >
+                <a class="navbar-brand" asp-area="" asp-page="/Index">PassGen</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+    using RandomPos;
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-<div class="text-center">
+    </header>
+        
+    <footer class="border-top footer text-muted" onmousemove="bt1(event)">
+        <div class="container">
+            &copy; 2024 - WebApplication1 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+    <div id="passList">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Senha</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+            
+    </div>
+    <div id="passName">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div id="d1">
+        
+    <p>nome da senha</p>
+
+    <input id="passwordname">
     <button onclick="btn()">confirm</button>
+    
+    </div>
      @section Scripts {    
     <script>
        const B1 = document.getElementById("Body1");
+        const PassName = document.getElementById("passwordname");
+        document.addEventListener("DOMContentLoaded", () => {
+            function registrarPosicaoInicial(e) {
+                
+                console.log("Posição inicial do mouse:", e);
+                const posicaoInicialMouse = { x: e.clientX, y: e.clientY, sX: e.screenX, sY: e.screenY, pX: e.pageX, pY: e.pageY};
+                console.log("Posição inicial do mouse:", posicaoInicialMouse);
+                document.removeEventListener("mousemove", registrarPosicaoInicial);
+            }
+
+            document.addEventListener("mousemove", registrarPosicaoInicial);
+        });
 
         var InfoSausage = [];
+        
         setInterval(AjaxCallBack, 5000);
         B1.onmousemove(bt1);
         function bt1(event){
@@ -26,9 +87,8 @@
 
         
 
-        async function AjaxCallBack(){
+        async function AjaxCallBack(param){
            const requestXhttp = new XMLHttpRequest();
-
             requestXhttp.onload = ()=>{
                   if (requestXhttp.status === 200) {
                     // Sucesso: tratar a resposta aqui
@@ -41,7 +101,7 @@
            
             requestXhttp.open("POST", "http://localhost:5118/A1", true);
             requestXhttp.setRequestHeader("Content-Type", "application/json");
-
+            console.log("aaaaaaaaaaa")
             await requestXhttp.send(JSON.stringify(InfoSausage))
             
         }
@@ -58,12 +118,14 @@
                 }
             }
 
-            requestXhttp.open("GET", "http://localhost:5118/A2");
-            await requestXhttp.send();
-            console.log("aaaaaaa");
-
+            requestXhttp.open("POST", "http://localhost:5118/A2", true);
+            requestXhttp.setRequestHeader("Content-Type", "application/json");
+            await requestXhttp.send(JSON.stringify(PassName.value));
         }
 
     </script>}
 
 </div>
+    
+</body>
+
