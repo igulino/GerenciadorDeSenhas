@@ -5,13 +5,6 @@ using FireSharp.Response;
 namespace FirebaseMedium
 {
     
-    /*public static class Program {
-        public static async Task Main(){
-            
-            Crud ins = new Crud();
-            await ins.Insert("Netflix", "Ks@e39Lk2f@a01");
-        }
-    }*/
     public class Connection{
         //firebase connection Settings
         public static IFirebaseConfig FbConfig = new FirebaseConfig()
@@ -50,17 +43,47 @@ namespace FirebaseMedium
     }
     
     public partial class Crud{
+
+        static HttpClient httpclient = new HttpClient();
         public async Task Insert(string PasswordName, string CaracsGenerateds){
             Data Dt = new Data(){
                 PasswordName = PasswordName,
                 CaracsGenerateds = CaracsGenerateds
             };
             try {
-                string json = JsonConvert.SerializeObject(Dt);
                 PushResponse response = await new Connection().client.PushAsync("v1/", Dt);
             } catch (Exception ex) {
                 Console.WriteLine($"Error: {ex.Message} stacktrace: {ex.StackTrace}");
 
+            }
+        }
+
+        static public async Task<List<Data>> Consult(){
+            try
+            {
+                List<Data> l1 = new List<Data>{};
+
+                var a = await new Connection().client.GetAsync("/v1");
+                string TakeA = a.Body;
+
+                Dictionary<string, Data> dataDictionary = JsonConvert.DeserializeObject<Dictionary<string, Data>>(TakeA);
+
+                foreach (var param in dataDictionary) {
+                    Console.WriteLine($"ID: {param.Key}, PasswordName: {param.Value.PasswordName}, CaracsGenerateds: {param.Value.CaracsGenerateds}");
+                    Data D1 = new Data{
+                        CaracsGenerateds = param.Value.CaracsGenerateds,
+                        PasswordName = param.Value.PasswordName
+                    };
+
+                    l1.Add(D1);
+                }
+                System.Console.WriteLine("aaaaaa: " + l1[0].PasswordName);
+                return l1;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
             }
         }
 

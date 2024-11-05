@@ -1,6 +1,7 @@
 using RandomPos;
 using Microsoft.AspNetCore.Mvc;
 using Sprache;
+using FireSharp.Extensions;
 
 [assembly: ApiController]
 
@@ -49,4 +50,10 @@ app.MapPost("/A2", async (HttpContext context) => {
     return Results.Ok();
 });
 
+
+app.MapGet("/A3", async () =>{
+        var res = await FirebaseMedium.Crud.Consult();
+        System.Console.WriteLine("this is res: " + res);
+        return Results.Ok(res.ToJson());
+});
 app.Run();

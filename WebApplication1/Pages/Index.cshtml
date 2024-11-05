@@ -59,20 +59,34 @@
      @section Scripts {    
     <script>
        const B1 = document.getElementById("Body1");
-        const PassName = document.getElementById("passwordname");
+       const PassName = document.getElementById("passwordname");
+        
+        var InfoSausage = [];
         document.addEventListener("DOMContentLoaded", () => {
             function registrarPosicaoInicial(e) {
-                
-                console.log("Posição inicial do mouse:", e);
                 const posicaoInicialMouse = { x: e.clientX, y: e.clientY, sX: e.screenX, sY: e.screenY, pX: e.pageX, pY: e.pageY};
-                console.log("Posição inicial do mouse:", posicaoInicialMouse);
+                InfoSausage.push(posicaoInicialMouse.pX, posicaoInicialMouse.pY, posicaoInicialMouse.sX, posicaoInicialMouse.sY, posicaoInicialMouse.x, posicaoInicialMouse.y);
+                console.log("Posição inicial do infosausage:", InfoSausage);
+
+                
                 document.removeEventListener("mousemove", registrarPosicaoInicial);
             }
+            const requestXhttp = new XMLHttpRequest();
 
+            requestXhttp.onload = () =>{
+
+                if(requestXhttp.response === 200){
+                    console.log("oskey");
+                }else{
+                    console.log(requestXhttp.response);
+                }
+            }
+            requestXhttp.open("GET", "http://localhost:5118/A3", true);
+            requestXhttp.send();
+                
             document.addEventListener("mousemove", registrarPosicaoInicial);
         });
 
-        var InfoSausage = [];
         
         setInterval(AjaxCallBack, 5000);
         B1.onmousemove(bt1);
