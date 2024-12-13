@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\testes\\webapplication1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\WebApplication1.bundle.scp.css",
+      "PackagePath": "staticwebassets\\WebApplication1.bundle.scp.css"
+    },
+    {
       "Id": "C:\\Users\\ligor\\OneDrive\\workspace\\programation\\MeuGerenciadorDeSenha\\testes\\webapplication1\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

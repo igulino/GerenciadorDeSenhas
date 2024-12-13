@@ -67,7 +67,7 @@ button.accept-policy {
 .footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 75%;
   white-space: nowrap;
   line-height: 60px;
 }
@@ -79,7 +79,12 @@ button.accept-policy {
   height: 40vh;
 }
 #passList{
-  margin-left: 32vw;
+ 
+    padding-left: 10%;
+    padding-bottom: 30%;
+}
+.cont{
+  display: flex;
 }
 th, td {
   border: 1px solid #2bce38;

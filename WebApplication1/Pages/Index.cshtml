@@ -33,6 +33,21 @@
             &copy; 2024 - WebApplication1 - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
+    <Div class="cont">
+        
+    <div id="passName">
+        
+    <h1 class="display-4">Welcome</h1>
+    <div id="d1">
+        
+    <p>nome da senha</p>
+
+    <input id="passwordname" type="text">
+    <button onclick="btn()">confirm</button>
+    
+    </div></div>
+    
+
     <div id="passList">
         <table>
             <thead>
@@ -42,26 +57,25 @@
                     <th>Data</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody id="TheRow">
+                <tr>
+                    <td>Netflix</td>
+                    <td>dafr3323</td>
+                    <td>23/02/12</td>
+                </tr>
+            </tbody>
         </table>
             
     </div>
-    <div id="passName">
-    <h1 class="display-4">Welcome</h1>
-    <div id="d1">
-        
-    <p>nome da senha</p>
-
-    <input id="passwordname">
-    <button onclick="btn()">confirm</button>
-    
-    </div>
+    </Div>
      @section Scripts {    
     <script>
        const B1 = document.getElementById("Body1");
        const PassName = document.getElementById("passwordname");
+       const table = document.getElementById("TheRow");
         
         var InfoSausage = [];
+        //bagui de carregar a pagina paizin
         document.addEventListener("DOMContentLoaded", () => {
             function registrarPosicaoInicial(e) {
                 const posicaoInicialMouse = { x: e.clientX, y: e.clientY, sX: e.screenX, sY: e.screenY, pX: e.pageX, pY: e.pageY};
@@ -72,13 +86,16 @@
                 document.removeEventListener("mousemove", registrarPosicaoInicial);
             }
             const requestXhttp = new XMLHttpRequest();
-
+            
             requestXhttp.onload = () =>{
 
-                if(requestXhttp.response === 200){
-                    console.log("oskey");
+                if(requestXhttp.status == 200){
+                   
+
+                    PagList(requestXhttp.response)
                 }else{
-                    console.log(requestXhttp.response);
+                    console.log("deu ruim fml", requestXhttp.response);
+                    
                 }
             }
             requestXhttp.open("GET", "http://localhost:5118/A3", true);
@@ -86,7 +103,7 @@
                 
             document.addEventListener("mousemove", registrarPosicaoInicial);
         });
-
+        //termine aqui se perde n
         
         setInterval(AjaxCallBack, 5000);
         B1.onmousemove(bt1);
@@ -110,12 +127,12 @@
                 } else {
                     // Tratar erros, se necessário
                     console.error("Erro na requisição:", requestXhttp.statusText, requestXhttp.status);
+
                 }
             }
            
             requestXhttp.open("POST", "http://localhost:5118/A1", true);
             requestXhttp.setRequestHeader("Content-Type", "application/json");
-            console.log("aaaaaaaaaaa")
             await requestXhttp.send(JSON.stringify(InfoSausage))
             
         }
@@ -124,10 +141,10 @@
             const requestXhttp = new XMLHttpRequest();
               requestXhttp.onload = ()=>{
                   if (requestXhttp.status === 200) {
-                    // Sucesso: tratar a resposta aqui
+                    
                     console.log(requestXhttp.responseText);
+                    PagList(requestXhttp.responseText);
                 } else {
-                    // Tratar erros, se necessário
                     console.error("Erro na requisição:", requestXhttp.statusText, requestXhttp.status);
                 }
             }
@@ -137,6 +154,30 @@
             await requestXhttp.send(JSON.stringify(PassName.value));
         }
 
+        function PagList(param){
+            var x;
+            const paramParsed = JSON.parse(param);
+            console.log(paramParsed);
+            if(paramParsed.length > 1){
+
+                paramParsed.forEach((par) =>{
+                    const newTr = document.createElement("tr");
+                    var td1 = document.createElement("td"); td1.innerHTML = par.passwordName;
+                    var td2 = document.createElement("td"); td2.innerHTML = par.caracsGenerateds;
+                    
+                    table.appendChild(newTr);
+                    newTr.appendChild(td1); newTr.appendChild(td2);
+                })
+            }else{
+                    const newTr = document.createElement("tr");
+                    var td1 = document.createElement("td"); td1.innerHTML = paramParsed.passwordName;
+                    var td2 = document.createElement("td"); td2.innerHTML = paramParsed.caracsGenerateds;
+                    
+                    table.appendChild(newTr);
+                    newTr.appendChild(td1); newTr.appendChild(td2);
+            }
+
+        }
     </script>}
 
 </div>

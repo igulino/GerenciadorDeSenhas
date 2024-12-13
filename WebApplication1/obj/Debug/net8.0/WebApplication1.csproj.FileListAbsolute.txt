@@ -79,3 +79,5 @@ C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\weba
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\bin\Debug\net8.0\System.Security.Permissions.dll
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\ligor\OneDrive\workspace\programation\MeuGerenciadorDeSenha\testes\webapplication1\obj\Debug\net8.0\scopedcss\projectbundle\WebApplication1.bundle.scp.css

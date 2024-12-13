@@ -2,7 +2,7 @@ using RandomPos;
 using Microsoft.AspNetCore.Mvc;
 using Sprache;
 using FireSharp.Extensions;
-
+using FirebaseMedium;
 [assembly: ApiController]
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,21 +39,22 @@ app.MapPost("/A1", async (HttpContext context) => {
 
 app.MapPost("/A2", async (HttpContext context) => { 
     //await FirebaseMedium.Program.Main();
+    Data takeReturn = new Data{};
+
+    FirebaseMedium.Data res = new Data{ CaracsGenerateds = await Desserilize.A3(context), PasswordName = null};
     
-    string res = await Desserilize.A3(context);
-    
-     if (res != null && res.Any())
+     if (res != null)
     {
-       await Randominator.Click(res);
+        takeReturn = await Randominator.Click(res);
     }
     
-    return Results.Ok();
+    return Results.Ok(takeReturn);
 });
 
 
 app.MapGet("/A3", async () =>{
         var res = await FirebaseMedium.Crud.Consult();
         System.Console.WriteLine("this is res: " + res);
-        return Results.Ok(res.ToJson());
+        return Results.Ok(res);
 });
 app.Run();

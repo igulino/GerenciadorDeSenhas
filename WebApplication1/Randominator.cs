@@ -74,12 +74,25 @@ public class Randominator
 
     }
 
-    public static async Task Click(string res){
-
+    public static async Task<Data> Click(Data res){
+       
         
         string resultado = string.Join("", FinalForm);
-        System.Console.WriteLine("this is res: "+res);
-        await connection.Insert(res, resultado);
+
+        if (res.CaracsGenerateds.IndexOf("") != -1)
+        {
+
+           res.CaracsGenerateds = res.CaracsGenerateds.Remove(0, 1);
+           res.CaracsGenerateds = res.CaracsGenerateds.Remove(res.CaracsGenerateds.Length - 1, 1);
+        }
+        System.Console.WriteLine("this is res: "+ res);
+        await connection.Insert(res.CaracsGenerateds, resultado);
+        Data ResFinal = new Data{
+            CaracsGenerateds = resultado,
+            PasswordName = res.CaracsGenerateds
+        };
+
+        return ResFinal;
     }
 }
 
